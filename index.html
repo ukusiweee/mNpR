@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>В гостях у фермера</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__container">
+        <div class="header__logo">
+          <img src="images/logo.png" alt="В гостях у фермера" />
+        </div>
+        <nav class="header__nav">
+          <ul class="header__nav-list">
+            <li class="header__nav-item">
+              <a class="header__nav-link" onclick="scrollToSection('products')"
+                >Ассортимент</a
+              >
+            </li>
+            <li class="header__nav-item">
+              <a class="header__nav-link" onclick="scrollToSection('contacts')"
+                >Как заказать</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main class="main">
+      <section class="hero">
+        <div class="hero__container">
+          <div class="hero__content">
+            <span class="hero__span">С фермы — к вашему столу</span>
+            <h1>Настоящий вкус. Честное ремесло.</h1>
+            <p class="hero__p">
+              Крафтовые колбасы ручной работы, фермерское мясо и деликатесы. Для
+              тех, кто ценит вкус и знает, что внутри.
+            </p>
+            <button class="hero__btn" onclick="scrollToSection('products')">
+              Смотреть ассортимент
+            </button>
+            <span class="span__small">Натуральный состав / ручная работа</span>
+          </div>
+          <div class="hero__image">
+            <img src="images/hero.JPG" alt="Свежие продукты" />
+          </div>
+        </div>
+      </section>
+      <section id="products" class="products">
+        <div class="products_container">
+          <span class="products__span">01 / Фермерская лавка</span>
+          <h2>К столу, за которым собираются свои</h2>
+          <div class="products__grid">
+            <div class="products__product">
+              <img src="images/ex.jpg" alt="Мясо" />
+              <h3>Колбаса сыровяленая</h3>
+              <p class="products__p">
+                Свинина, натуральные специи, долгая выдержка
+              </p>
+              <span class="products__price">890 ₽ / 300 г</span>
+            </div>
+            <div class="products__product">
+              <img src="images/ex.jpg" alt="Мясо" />
+              <h3>Домашняя сыровяленая</h3>
+              <p class="products__p">
+                Свинина, натуральные специи, долгая выдержка
+              </p>
+              <span class="products__price">890 ₽ / 300 г</span>
+            </div>
+            <div class="products__product">
+              <img src="images/ex.jpg" alt="Мясо" />
+              <h3>Колбаса сыровяленая</h3>
+              <p class="products__p">
+                Свинина, натуральные специи, долгая выдержка
+              </p>
+              <span class="products__price">890 ₽ / 300 г</span>
+            </div>
+          </div>
+          <p>
+            Демонстрационные товары и цены. Актуальное наличие и стоимость
+            уточняйте при заказе.
+          </p>
+        </div>
+      </section>
+      <section class="about">
+        <div class="about__container">
+          <div class="about__image">
+            <img src="images/about.JPG" alt="Свежие продукты" />
+          </div>
+          <div class="about__content">
+            <span class="about__span">02 / Дело, которое мы любим</span>
+            <h2>Не торопим время. Не упрощаем вкус.</h2>
+            <p class="about__p">
+              Хороший продукт начинается с уважения: к земле, к животным, к
+              своему делу. Мы выбираем натуральное мясо, работаем руками и даём
+              каждому вкусу раскрыться.
+            </p>
+            <p class="about__p--sub">Мясо. Соль. Специи. И ничего лишнего.</p>
+          </div>
+        </div>
+      </section>
+      <section id="contacts" class="contacts">
+        <div class="contacts__container">
+          <span class="contacts__span">03 / Добро пожаловать</span>
+          <h2>Почувствуйте себя в гостях у фермера.</h2>
+          <p class="contacts__p">
+            Позвоните или напишите нам: поможем выбрать продукты и уточним
+            наличие, оплату и доставку.
+          </p>
+          <a href="tel:+1234567890" class="contacts__phone-button">
+            <img src="images/phone.png" alt="Телефон" />+1234567890</a
+          >
+          <p class="contacts__sub">
+            Подписывайтесь на нас в социальных сетях. Будьте первыми в курсе
+            наших новинок, акций и скидок!
+          </p>
+          <div class="contacts__social-buttons">
+            <a
+              href="https://vk.ru/fermamyaso_13"
+              class="contacts__social-button"
+            >
+              <img src="images/vk.png" alt="VK" /> ВКонтакте
+            </a>
+            <a href="#" class="contacts__social-button">
+              <img src="images/max.png" alt="MAX" /> MAX
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="footer__container">
+        <div class="footer__logo">
+          <img src="images/logo.png" alt="В гостях у фермера" />
+          <p class="footer__p">В гостях у фермера</p>
+        </div>
+        <p class="footer__copyright">© 2026 · Сделано с уважением к вкусу</p>
+      </div>
+    </footer>
+    <!-- <button id="back-to-top" class="back-to-top" onclick="scrollToTop()">
+      <img src="images/back-top.png" alt="Вверх" />
+    </button> -->
+    <script src="scripts/script.js"></script>
+  </body>
+</html>

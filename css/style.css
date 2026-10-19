@@ -1,0 +1,529 @@
+@font-face {
+  font-family: "Inter";
+  src: url("../fonts/Inter-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../fonts/Inter-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../fonts/Inter-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../fonts/Inter-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cormorant garamond";
+  src: url("../fonts/CormorantGaramond-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cormorant garamond";
+  src: url("../fonts/CormorantGaramond-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  background-color: #141513;
+  font-family: "Inter";
+  color: #eee7da;
+  padding: 0 20px 0 20px;
+}
+
+span {
+  font-family: "Inter";
+  font-weight: 400;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #b68c61;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-family: "Cormorant garamond";
+  font-weight: 500;
+  font-size: 76px;
+  letter-spacing: 1px;
+  line-height: 0.98;
+}
+
+h2 {
+  font-family: "Cormorant garamond";
+  font-weight: 400;
+  font-size: 48px;
+  letter-spacing: 1px;
+  line-height: 1.05;
+}
+
+h3 {
+  font-family: "Cormorant garamond";
+  font-weight: 500;
+  font-size: 30px;
+  letter-spacing: 1px;
+  line-height: 1.05;
+}
+
+p {
+  font-family: "Inter";
+  font-weight: 400;
+  font-size: 15px;
+  color: #a6a598;
+  line-height: 1.7;
+}
+
+.header {
+  padding: 20px 0;
+}
+
+.header__container {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__logo img {
+  max-width: 50%;
+  height: auto;
+}
+
+.header__nav {
+  display: flex;
+  justify-content: center;
+}
+
+.header__nav-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+}
+
+.header__nav-item {
+  margin: 0 15px;
+}
+
+.header__nav-item:last-child {
+  margin-right: 0;
+}
+
+.header__nav-link {
+  color: #eee7da;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.header__nav-link:hover {
+  color: #ada89f;
+}
+
+.hero {
+  margin-bottom: 50px;
+}
+
+.hero__container {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px 0;
+}
+
+.hero__content {
+  flex: 1;
+  padding-right: 50px;
+}
+
+.hero__span {
+  display: block;
+  margin-bottom: 24px;
+}
+
+.hero__p {
+  margin: 24px 0 24px 0;
+}
+
+.hero__btn {
+  font-family: "Inter";
+  font-weight: 600;
+  font-size: 12px;
+  width: 193px;
+  height: 52px;
+  margin-bottom: 24px;
+  background-color: #b68c61;
+  color: #141513;
+  border-radius: 2px;
+}
+
+.hero__btn:hover {
+  background-color: #e1b182;
+}
+
+.span__small {
+  display: block;
+  font-size: 9px;
+}
+
+.hero__image {
+  flex: 1.15;
+  border-radius: 2px;
+}
+
+.products {
+  padding-top: 50px;
+  margin-bottom: 50px;
+}
+
+.products__span {
+  padding-bottom: 30px;
+}
+
+.products_container {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-direction: column;
+}
+
+.products__grid {
+  display: flex;
+  margin: 30px 0 30px 0;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.products__product {
+  max-width: 380px;
+  background-color: #1d1f1b;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.products__product img {
+  margin-bottom: 16px;
+}
+
+.products__p {
+  margin: 16px 0 16px 0;
+  font-size: 12px;
+  letter-spacing: 1px;
+  line-height: 1.05;
+}
+
+.products__price {
+  margin-bottom: 16px;
+  font-family: "Inter";
+  font-weight: 400;
+  font-size: 15px;
+  color: #eee7da;
+  line-height: 1.7;
+}
+
+.about {
+  margin-bottom: 50px;
+  padding: 50px 0;
+}
+
+.about__container {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.about__content {
+  flex: 1;
+  padding-left: 70px;
+}
+
+.about__image {
+  flex: 1.2;
+}
+
+.about__span {
+  display: block;
+  margin-bottom: 24px;
+}
+
+.about__p {
+  margin: 24px 0 24px 0;
+}
+
+.about__p--sub {
+  color: #eee7da;
+}
+
+.contacts__container {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-direction: column;
+  padding: 50px 0;
+}
+
+.contacts__span {
+  display: block;
+  margin-bottom: 30px;
+}
+
+.contacts__p {
+  margin: 30px 0 30px 0;
+}
+
+.contacts__phone-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 198px;
+  height: 57px;
+  background-color: #b68c61;
+  color: #141513;
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 30px;
+  border-radius: 2px;
+}
+
+.contacts__phone-button:hover {
+  background-color: #e1b182;
+}
+
+.contacts__phone-button img {
+  width: 25px;
+  height: 25px;
+  margin-right: 12px;
+}
+
+.contacts__social-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.contacts__sub {
+  margin-bottom: 30px;
+}
+
+.contacts__social-button {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  flex-basis: 0;
+  height: 57px;
+  margin-right: 10px;
+  padding-left: 16px;
+  border: 1px solid #b68c61;
+  color: #eee7da;
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 1.7;
+  text-align: center;
+  border-radius: 2px;
+}
+
+.contacts__social-button:hover {
+  background-color: #3b3b3b;
+  border: 1px solid #e1b182;
+}
+
+.contacts__social-button img {
+  width: 30px;
+  height: 30px;
+  margin-right: 12px;
+}
+
+.contacts__social-button:last-child {
+  margin-right: 0;
+}
+
+.footer {
+  padding: 30px 0 20px 0;
+}
+
+.footer__container {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer__logo {
+  display: flex;
+  align-items: center;
+}
+
+.footer__logo img {
+  max-width: 17%;
+  height: auto;
+}
+
+.footer__p {
+  display: inline;
+  font-family: "Cormorant garamond";
+  font-weight: 500;
+  margin-left: 30px;
+  color: #a6a598;
+  font-size: 26px;
+  line-height: 1.05;
+}
+
+.footer__copyright {
+  color: #a6a598;
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+.back-to-top {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+@media (min-width: 810px) and (max-width: 1199px) {
+  h1 {
+    font-size: 56px;
+  }
+
+  h2 {
+    font-size: 42px;
+  }
+
+  .hero__container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero__content {
+    width: 100%;
+  }
+
+  .span__small {
+    margin-bottom: 32px;
+  }
+
+  .hero__image {
+    width: 100%;
+    height: 430px;
+    flex: none;
+    overflow: hidden;
+  }
+
+  .hero__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .products {
+    padding-top: 0px;
+  }
+
+  .about {
+    padding-top: 0px;
+  }
+}
+
+@media (max-width: 811px) {
+  h1 {
+    font-size: 52px;
+  }
+
+  h2 {
+    font-size: 36px;
+  }
+
+  .hero {
+    margin-bottom: 0px;
+  }
+
+  .hero__container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero__content {
+    width: 100%;
+  }
+
+  .span__small {
+    margin-bottom: 32px;
+  }
+
+  .products {
+    padding-top: 0px;
+  }
+
+  .products__grid {
+    justify-content: center;
+  }
+
+  .about {
+    padding-top: 0px;
+    margin-bottom: 0px;
+  }
+
+  .about__container {
+    flex-direction: column;
+  }
+
+  .about__content {
+    margin-top: 30px;
+    padding-left: 0px;
+  }
+
+  .contacts__container {
+    padding-top: 0px;
+  }
+}
+
+@media (max-width: 591px) {
+  .header__logo img {
+    max-width: 39%;
+    height: auto;
+  }
+
+  .header__nav-link {
+    font-size: 14px;
+  }
+
+  .footer__p {
+    font-size: 16px;
+  }
+}
