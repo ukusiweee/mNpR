@@ -469,6 +469,39 @@ p {
     font-size: 36px;
   }
 
+  .header__container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .header__logo {
+    flex: 0 0 auto;
+  }
+
+  .header__logo img {
+    display: block;
+    width: 100px;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .header__nav {
+    flex: 1 1 0;
+    min-width: 0;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .header__nav-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    margin: 0;
+    padding: 0;
+  }
+
   .hero {
     margin-bottom: 0px;
   }
@@ -515,7 +548,8 @@ p {
 
 @media (max-width: 591px) {
   .header__logo img {
-    max-width: 39%;
+    width: 78px;
+    max-width: 100%;
     height: auto;
   }
 
