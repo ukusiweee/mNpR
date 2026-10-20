@@ -1,11 +1,29 @@
 function scrollToSection(sectionId) {
   const section = document.getElementById(sectionId);
+
   if (section) {
-    section.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-      duration: 1000,
-    });
+    const startPosition = window.scrollY;
+    const targetPosition = section.getBoundingClientRect().top + window.scrollY;
+
+    const duration = 1000;
+    const startTime = performance.now();
+
+    function animateScroll(currentTime) {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const ease = 1 - Math.pow(1 - progress, 3);
+
+      window.scrollTo(
+        0,
+        startPosition + (targetPosition - startPosition) * ease,
+      );
+
+      if (progress < 1) {
+        requestAnimationFrame(animateScroll);
+      }
+    }
+
+    requestAnimationFrame(animateScroll);
   }
 }
 
