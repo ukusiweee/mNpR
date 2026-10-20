@@ -214,7 +214,8 @@ p {
   display: flex;
   margin: 30px 0 30px 0;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 20px;
 }
 
 .products__product {
@@ -225,6 +226,7 @@ p {
 }
 
 .products__product img {
+  height: 230px;
   margin-bottom: 16px;
 }
 
@@ -242,6 +244,22 @@ p {
   font-size: 15px;
   color: #eee7da;
   line-height: 1.7;
+}
+
+.products__btn {
+  font-family: "Inter";
+  font-weight: 600;
+  font-size: 14px;
+  width: 193px;
+  height: 52px;
+  margin: 24px 0 24px 0;
+  background-color: #b68c61;
+  color: #141513;
+  border-radius: 2px;
+}
+
+.products__btn:hover {
+  background-color: #e1b182;
 }
 
 .about {
@@ -309,6 +327,12 @@ p {
   line-height: 1.7;
   margin-bottom: 30px;
   border-radius: 2px;
+}
+
+.contacts__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
 }
 
 .contacts__phone-button:hover {
