@@ -135,6 +135,13 @@ p {
   text-decoration: none;
   font-size: 16px;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.header__nav-link:focus,
+.header__nav-link:active {
+  color: #eee7da;
+  outline: none;
 }
 
 .header__nav-link:hover {
@@ -578,7 +585,7 @@ p {
   }
 
   .header__nav-link {
-    font-size: 14px;
+    font-size: 10px;
   }
 
   .footer__p {
