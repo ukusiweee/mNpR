@@ -33,6 +33,13 @@
               >
             </li>
             <li class="header__nav-item">
+              <a
+                class="header__nav-link"
+                onclick="scrollToSection('price-list')"
+                >Прайс-лист</a
+              >
+            </li>
+            <li class="header__nav-item">
               <a class="header__nav-link" onclick="scrollToSection('contacts')"
                 >Как заказать</a
               >
@@ -192,8 +199,10 @@
               <span class="products__price">920 ₽ / 1 кг</span>
             </div>
           </div>
-          <p>С полным ассортиментом можете ознакомиться в прайс-листе ниже:</p>
-          <button id="pdf-button" class="products__btn">Прайс-лист</button>
+          <p id="price-list">
+            С полным ассортиментом можете ознакомиться в прайс-листе ниже:
+          </p>
+          <button id="price-button" class="products__btn">Прайс-лист</button>
           <p>Актуальное наличие уточняйте при заказе.</p>
         </div>
       </section>

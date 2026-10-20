@@ -9,7 +9,7 @@ function scrollToSection(sectionId) {
   }
 }
 
-document.getElementById("pdf-button").addEventListener("click", function () {
+document.getElementById("price-button").addEventListener("click", function () {
   window.open("src/Прайс-лист_от_20.10.2026.pdf", "_blank");
 });
 
