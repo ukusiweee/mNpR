@@ -1,3 +1,94 @@
+const intro = document.getElementById("intro");
+const video = document.getElementById("introVideo");
+const soundButton = document.getElementById("introSound");
+const skipButton = document.getElementById("introSkip");
+const preloader = document.getElementById("preloader");
+
+let introClosed = false;
+let introTimer = null;
+
+function closeIntro() {
+  if (introClosed) return;
+
+  introClosed = true;
+  clearTimeout(introTimer);
+
+  intro.classList.add("intro--hidden");
+  video.pause();
+
+  setTimeout(() => intro.remove(), 800);
+}
+
+async function startIntro() {
+  const minLoadingTime = new Promise((resolve) => {
+    setTimeout(resolve, 1500);
+  });
+
+  const fontsReady = document.fonts ? document.fonts.ready : Promise.resolve();
+
+  const videoReady = new Promise((resolve) => {
+    if (video.readyState >= 3 || video.error) {
+      resolve();
+      return;
+    }
+
+    video.addEventListener("canplay", resolve, { once: true });
+    video.addEventListener("error", resolve, { once: true });
+  });
+
+  video.pause();
+
+  await Promise.all([minLoadingTime, fontsReady, videoReady]);
+
+  if (introClosed) return;
+
+  preloader.classList.add("preloader--hidden");
+
+  if (!introClosed) {
+    try {
+      await video.play();
+    } catch (error) {
+      console.log("Автозапуск видео не удался:", error);
+    }
+  }
+
+  setTimeout(() => {
+    preloader.remove();
+  }, 600);
+
+  if (video.error) {
+    introTimer = setTimeout(closeIntro, 5000);
+  }
+}
+
+video.addEventListener("playing", () => {
+  if (introTimer === null && !introClosed) {
+    introTimer = setTimeout(closeIntro, 7000);
+  }
+});
+
+soundButton.addEventListener("click", async () => {
+  video.muted = false;
+
+  try {
+    await video.play();
+    soundButton.remove();
+  } catch (error) {
+    video.muted = true;
+    soundButton.textContent = "Не удалось включить звук";
+  }
+});
+
+skipButton.addEventListener("click", closeIntro);
+
+video.addEventListener("error", () => {
+  if (!introClosed && !introTimer) {
+    introTimer = setTimeout(closeIntro, 5000);
+  }
+});
+
+startIntro();
+
 function scrollToSection(sectionId) {
   const section = document.getElementById(sectionId);
 

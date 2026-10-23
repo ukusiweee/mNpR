@@ -20,6 +20,129 @@
     />
   </head>
   <body>
+    <div class="preloader" id="preloader">
+      <svg
+        class="preloader__title-svg"
+        viewBox="0 0 800 240"
+        xmlns="http://www.w3.org/2000/svg"
+        role="img"
+      >
+        <g
+          class="preloader__ornament"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+        >
+          <path
+            d="M90 174 C125 164 145 145 180 143
+           C200 142 213 151 203 160
+           C193 168 183 155 194 151"
+          />
+          <path
+            d="M710 174 C675 164 655 145 620 143
+           C600 142 587 151 597 160
+           C607 168 617 155 606 151"
+          />
+          <path d="M270 155 Q300 140 325 155" />
+          <path d="M530 155 Q500 140 475 155" />
+        </g>
+        <g
+          class="preloader__farm"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="3"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M345 139 L400 100 L455 139" />
+          <path d="M354 135 V166 H446 V135" />
+          <path d="M385 166 V145 H415 V166" />
+          <path d="M366 145 H375 M425 145 H434" />
+          <path d="M335 173 Q400 184 465 173" />
+          <path
+            d="M350 181 L370 176 M390 182 L400 177 M430 182 L420 177 M450 181 L435 176"
+          />
+        </g>
+      </svg>
+      <div class="preloader__spinner"></div>
+      <p class="preloader__text">Готовим для вас самое вкусное...</p>
+    </div>
+    <div class="intro" id="intro">
+      <video
+        class="intro__video"
+        id="introVideo"
+        autoplay
+        muted
+        playsinline
+        preload="auto"
+      >
+        <source src="video/intro.mp4" type="video/mp4" />
+      </video>
+      <div class="intro__overlay"></div>
+      <div class="intro__title">
+        <svg
+          class="intro__title-svg"
+          viewBox="0 0 800 240"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs>
+            <path id="titleArc" d="M 75,190 Q 400,-70 725,190" />
+          </defs>
+          <text class="intro__title-text">
+            <textPath href="#titleArc" startOffset="50%" text-anchor="middle">
+              Семейная фермера
+            </textPath>
+          </text>
+          <g
+            class="intro__ornament"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+          >
+            <path
+              d="M90 174 C125 164 145 145 180 143
+               C200 142 213 151 203 160
+               C193 168 183 155 194 151"
+            />
+            <path
+              d="M710 174 C675 164 655 145 620 143
+               C600 142 587 151 597 160
+               C607 168 617 155 606 151"
+            />
+            <path d="M270 155 Q300 140 325 155" />
+            <path d="M530 155 Q500 140 475 155" />
+          </g>
+          <g
+            class="intro__farm"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M345 139 L400 100 L455 139" />
+            <path d="M354 135 V166 H446 V135" />
+            <path d="M385 166 V145 H415 V166" />
+            <path d="M366 145 H375 M425 145 H434" />
+            <path d="M335 173 Q400 184 465 173" />
+            <path
+              d="M350 181 L370 176 M390 182 L400 177 M430 182 L420 177 M450 181 L435 176"
+            />
+          </g>
+        </svg>
+      </div>
+      <div class="intro__buttons">
+        <button class="intro__sound" id="introSound" type="button">
+          <img src="images/icons/sound.png" alt="VK" />
+          Включить звук
+        </button>
+        <button class="intro__skip" id="introSkip" type="button">
+          Пропустить
+        </button>
+      </div>
+    </div>
     <header class="header">
       <div class="header__container">
         <div class="header__logo">
