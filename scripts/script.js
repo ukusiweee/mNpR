@@ -40,8 +40,6 @@ async function startIntro() {
 
     video.addEventListener("canplay", resolve, { once: true });
     video.addEventListener("error", resolve, { once: true });
-
-    setTimeout(resolve, 8000);
   });
 
   video.pause();
@@ -52,14 +50,12 @@ async function startIntro() {
 
   preloader.classList.add("preloader--hidden");
 
-  video.muted = true;
-  video.defaultMuted = true;
-  video.playsInline = true;
-
-  try {
-    await video.play();
-  } catch (error) {
-    console.log("Автозапуск видео не удался:", error);
+  if (!introClosed) {
+    try {
+      await video.play();
+    } catch (error) {
+      console.log("Автозапуск видео не удался:", error);
+    }
   }
 
   setTimeout(() => {
@@ -77,15 +73,35 @@ video.addEventListener("playing", () => {
   }
 });
 
+function updateSoundButton() {
+  if (!soundButton || !soundButton.isConnected) return;
+
+  if (video.paused || video.ended) {
+    soundButton.textContent = "Запустить видео";
+  }
+}
+
+video.addEventListener("playing", updateSoundButton);
+video.addEventListener("pause", updateSoundButton);
+video.addEventListener("ended", updateSoundButton);
+
 soundButton.addEventListener("click", async () => {
-  video.muted = false;
+  if (video.paused || video.ended) {
+    try {
+      video.muted = true;
+      await video.play();
+    } catch (error) {
+      console.error("Ошибка запуска видео:", error);
+    }
+    return;
+  }
 
   try {
-    await video.play();
+    video.muted = false;
     soundButton.remove();
   } catch (error) {
     video.muted = true;
-    soundButton.textContent = "Не удалось включить звук";
+    console.error("Не удалось включить звук:", error);
   }
 });
 
