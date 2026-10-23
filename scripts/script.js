@@ -4,6 +4,9 @@ const soundButton = document.getElementById("introSound");
 const skipButton = document.getElementById("introSkip");
 const preloader = document.getElementById("preloader");
 
+document.documentElement.classList.add("no-scroll");
+document.body.classList.add("no-scroll");
+
 let introClosed = false;
 let introTimer = null;
 
@@ -15,6 +18,9 @@ function closeIntro() {
 
   intro.classList.add("intro--hidden");
   video.pause();
+
+  document.documentElement.classList.remove("no-scroll");
+  document.body.classList.remove("no-scroll");
 
   setTimeout(() => intro.remove(), 800);
 }
@@ -46,6 +52,8 @@ async function startIntro() {
 
   if (!introClosed) {
     try {
+      video.muted = true;
+      video.playsInline = true;
       await video.play();
     } catch (error) {
       console.log("Автозапуск видео не удался:", error);

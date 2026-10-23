@@ -94,6 +94,18 @@ p {
   line-height: 1.7;
 }
 
+html.no-scroll,
+body.no-scroll {
+  overflow: hidden;
+  height: 100%;
+  overscroll-behavior: none;
+}
+
+.preloader,
+.intro {
+  overscroll-behavior: none;
+}
+
 .preloader {
   position: fixed;
   inset: 0;
