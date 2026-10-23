@@ -51,9 +51,13 @@ async function startIntro() {
   preloader.classList.add("preloader--hidden");
 
   if (!introClosed) {
+    video.muted = true;
+    video.defaultMuted = true;
+    video.setAttribute("muted", "");
+    video.setAttribute("playsinline", "");
+    video.setAttribute("webkit-playsinline", "");
+
     try {
-      video.muted = true;
-      video.playsInline = true;
       await video.play();
     } catch (error) {
       console.log("Автозапуск видео не удался:", error);
