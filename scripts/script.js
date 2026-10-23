@@ -100,23 +100,22 @@ video.addEventListener("ended", () => {
 });
 
 soundButton.addEventListener("click", async () => {
-  if (!videoStarted) {
-    try {
-      video.muted = true;
-      await video.play();
+  try {
+    video.muted = false;
+    video.removeAttribute("muted");
 
-      videoStarted = !video.paused;
-      updateSoundButton();
-    } catch (error) {
-      soundButton.textContent = "Не удалось запустить видео";
-      console.error("Ошибка запуска видео:", error);
+    if (!videoStarted || video.paused) {
+      await video.play();
     }
 
-    return;
-  }
+    videoStarted = !video.paused;
 
-  video.muted = false;
-  soundButton.remove();
+    if (videoStarted) {
+      soundButton.remove();
+    }
+  } catch (error) {
+    console.error("Не удалось запустить видео со звуком:", error);
+  }
 });
 
 skipButton.addEventListener("click", closeIntro);
