@@ -9,7 +9,6 @@ document.body.classList.add("no-scroll");
 
 let introClosed = false;
 let introTimer = null;
-let videoStarted = false;
 
 function closeIntro() {
   if (introClosed) return;
@@ -54,12 +53,9 @@ async function startIntro() {
   if (!introClosed) {
     try {
       await video.play();
-      videoStarted = !video.paused;
     } catch (error) {
-      videoStarted = false;
       console.log("Автозапуск видео не удался:", error);
     }
-    updateSoundButton();
   }
 
   setTimeout(() => {
@@ -80,47 +76,33 @@ video.addEventListener("playing", () => {
 function updateSoundButton() {
   if (!soundButton || !soundButton.isConnected) return;
 
-  soundButton.textContent = videoStarted ? "Включить звук" : "Запустить видео";
-}
-
-video.addEventListener("playing", () => {
-  videoStarted = true;
-  updateSoundButton();
-});
-
-video.addEventListener("pause", () => {
-  if (!video.ended) {
-    videoStarted = false;
-    updateSoundButton();
+  if (video.paused || video.ended) {
+    soundButton.textContent = "Запустить видео";
   }
-});
-
-video.addEventListener("ended", () => {
-  videoStarted = false;
-  updateSoundButton();
-});
+}
 
 video.addEventListener("playing", updateSoundButton);
 video.addEventListener("pause", updateSoundButton);
 video.addEventListener("ended", updateSoundButton);
 
 soundButton.addEventListener("click", async () => {
-  if (!videoStarted) {
+  if (video.paused || video.ended) {
     try {
       video.muted = true;
       await video.play();
-      videoStarted = true;
-      updateSoundButton();
     } catch (error) {
-      soundButton.textContent = "Не удалось запустить видео";
       console.error("Ошибка запуска видео:", error);
     }
-
     return;
   }
 
-  video.muted = false;
-  soundButton.remove();
+  try {
+    video.muted = false;
+    soundButton.remove();
+  } catch (error) {
+    video.muted = true;
+    console.error("Не удалось включить звук:", error);
+  }
 });
 
 skipButton.addEventListener("click", closeIntro);
