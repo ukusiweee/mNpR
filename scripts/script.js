@@ -11,6 +11,12 @@ let introClosed = false;
 let introTimer = null;
 let videoStarted = false;
 
+function updateSoundButton() {
+  if (!soundButton || !soundButton.isConnected) return;
+
+  soundButton.textContent = videoStarted ? "Включить звук" : "Запустить видео";
+}
+
 function closeIntro() {
   if (introClosed) return;
 
@@ -51,37 +57,28 @@ async function startIntro() {
 
   preloader.classList.add("preloader--hidden");
 
-  if (!introClosed) {
-    try {
-      await video.play();
-      videoStarted = !video.paused;
-    } catch (error) {
-      videoStarted = false;
-      console.log("Автозапуск видео не удался:", error);
-    }
-    updateSoundButton();
+  try {
+    video.muted = true;
+    video.defaultMuted = true;
+    video.setAttribute("muted", "");
+    video.setAttribute("playsinline", "");
+
+    await video.play();
+
+    videoStarted = !video.paused && !video.ended;
+  } catch (error) {
+    videoStarted = false;
+    console.log("Автозапуск видео не удался:", error);
   }
+
+  updateSoundButton();
 
   setTimeout(() => {
     preloader.remove();
   }, 600);
 
-  if (video.error) {
+  if (video.error && !introTimer) {
     introTimer = setTimeout(closeIntro, 5000);
-  }
-}
-
-video.addEventListener("playing", () => {
-  if (introTimer === null && !introClosed) {
-    introTimer = setTimeout(closeIntro, 7000);
-  }
-});
-
-function updateSoundButton() {
-  if (!soundButton || !soundButton.isConnected) return;
-
-  if (!videoStarted) {
-    soundButton.textContent = "Запустить видео";
   }
 }
 
@@ -107,7 +104,8 @@ soundButton.addEventListener("click", async () => {
     try {
       video.muted = true;
       await video.play();
-      videoStarted = true;
+
+      videoStarted = !video.paused;
       updateSoundButton();
     } catch (error) {
       soundButton.textContent = "Не удалось запустить видео";
