@@ -40,6 +40,8 @@ async function startIntro() {
 
     video.addEventListener("canplay", resolve, { once: true });
     video.addEventListener("error", resolve, { once: true });
+
+    setTimeout(resolve, 8000);
   });
 
   video.pause();
@@ -50,18 +52,14 @@ async function startIntro() {
 
   preloader.classList.add("preloader--hidden");
 
-  if (!introClosed) {
-    video.muted = true;
-    video.defaultMuted = true;
-    video.setAttribute("muted", "");
-    video.setAttribute("playsinline", "");
-    video.setAttribute("webkit-playsinline", "");
+  video.muted = true;
+  video.defaultMuted = true;
+  video.playsInline = true;
 
-    try {
-      await video.play();
-    } catch (error) {
-      console.log("Автозапуск видео не удался:", error);
-    }
+  try {
+    await video.play();
+  } catch (error) {
+    console.log("Автозапуск видео не удался:", error);
   }
 
   setTimeout(() => {
