@@ -13,9 +13,7 @@ let videoStarted = false;
 
 function updateSoundButton() {
   if (!soundButton) return;
-
   if (!videoStarted) soundButton.textContent = "Запустить видео";
-  // soundButton.textContent = videoStarted ? "Включить звук" : "Запустить видео";
 }
 
 function closeIntro() {

@@ -200,12 +200,6 @@ body.no-scroll {
   object-position: center 30%;
 }
 
-.intro__video::-webkit-media-controls,
-.intro__video::-webkit-media-controls-start-playback-button {
-  display: none !important;
-  -webkit-appearance: none;
-}
-
 .intro__overlay {
   position: absolute;
   inset: 0;
