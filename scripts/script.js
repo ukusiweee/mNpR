@@ -11,14 +11,11 @@ let introClosed = false;
 let introTimer = null;
 let videoStarted = false;
 
-const soundButtonText = document.getElementById("introSoundText");
-
 function updateSoundButton() {
-  if (!soundButtonText) return;
+  if (!soundButton) return;
 
-  soundButtonText.textContent = videoStarted
-    ? "Включить звук"
-    : "Запустить видео";
+  if (!videoStarted) soundButton.textContent = "Запустить видео";
+  // soundButton.textContent = videoStarted ? "Включить звук" : "Запустить видео";
 }
 
 function closeIntro() {
