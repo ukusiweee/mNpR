@@ -11,10 +11,14 @@ let introClosed = false;
 let introTimer = null;
 let videoStarted = false;
 
-function updateSoundButton() {
-  if (!soundButton || !soundButton.isConnected) return;
+const soundButtonText = document.getElementById("introSoundText");
 
-  soundButton.textContent = videoStarted ? "Включить звук" : "Запустить видео";
+function updateSoundButton() {
+  if (!soundButtonText) return;
+
+  soundButtonText.textContent = videoStarted
+    ? "Включить звук"
+    : "Запустить видео";
 }
 
 function closeIntro() {
@@ -96,7 +100,7 @@ video.addEventListener("pause", () => {
 
 video.addEventListener("ended", () => {
   videoStarted = false;
-  updateSoundButton();
+  closeIntro();
 });
 
 soundButton.addEventListener("click", async () => {
