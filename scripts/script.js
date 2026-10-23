@@ -85,26 +85,22 @@ function updateSoundButton() {
   }
 }
 
-// video.addEventListener("playing", () => {
-//   videoStarted = true;
-//   updateSoundButton();
-// });
+video.addEventListener("playing", () => {
+  videoStarted = true;
+  updateSoundButton();
+});
 
-// video.addEventListener("pause", () => {
-//   if (!video.ended) {
-//     videoStarted = false;
-//     updateSoundButton();
-//   }
-// });
+video.addEventListener("pause", () => {
+  if (!video.ended) {
+    videoStarted = false;
+    updateSoundButton();
+  }
+});
 
-// video.addEventListener("ended", () => {
-//   videoStarted = false;
-//   updateSoundButton();
-// });
-
-video.addEventListener("playing", updateSoundButton);
-video.addEventListener("pause", updateSoundButton);
-video.addEventListener("ended", updateSoundButton);
+video.addEventListener("ended", () => {
+  videoStarted = false;
+  updateSoundButton();
+});
 
 soundButton.addEventListener("click", async () => {
   if (!videoStarted) {
