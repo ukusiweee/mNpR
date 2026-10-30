@@ -157,7 +157,7 @@ function scrollToSection(sectionId) {
 }
 
 document.getElementById("price-button").addEventListener("click", function () {
-  window.open("src/Прайс-лист_от_21.10.2026.pdf", "_blank");
+  window.open("src/Прайс-лист_от_30.10.2026.pdf", "_blank");
 });
 
 // function scrollToTop() {
